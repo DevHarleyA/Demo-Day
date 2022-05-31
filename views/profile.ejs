@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Main Profile Page -->
+  <title>Book Nook</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="profile">
+  <div class="container custTwo well">
+
+    <div class="page-header text-center">
+      <h1 class="title"><i class="fa-solid fa-book"></i>Profile</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h4 class="title">What are you reading?</h4>
+        <% if (user.local.email) { %>
+          <form action="/books" method="POST">
+            <!-- action = endpoint (/messages) -->
+            <input type="text" placeholder="book title" name="title" class="space">
+            <input type="text" placeholder="book author" name="author" class="space">
+            <textarea name="why" cols="30" rows="7" placeholder="share your reason for beginning this adventure..."
+              class="space"></textarea>
+            <button type="submit" class="space">Submit</button>
+          </form>
+          <h2><em>Where are you going today?</em></h2>
+          <img src="img\undraw_exploring_re_grb8.svg" alt="" class="cust1">
+      </div>
+      <div class="col-md-6">
+        <h2>Books</h2>
+        <ol>
+          <% for(let i=0; i< books.length; i++) {%>
+            <li class="book">
+              <p><span>Title: </span><span>
+                  <%= books[i].title %>
+                </span></p>
+              <p><span>Author: </span><span>
+                  <%= books[i].author %>
+                </span></p>
+              <span>The adventure started because: </span>
+              <p>
+                <%= books[i].why %>
+              </p>
+              <p><span>Progress: </span><span>
+                  <%= books[i].progress %>
+                </span>%</p>
+              <p>Update your reading progress in increments of 10%!</p>
+              <button class="btn btn-primary apple">Update Progress +5%</button>
+              <button class="btn btn-danger exx">Finished My Adventure</button>
+            </li>
+            <% } %>
+        </ol>
+      </div>
+    </div>
+
+    <% } %>
+    <div class="row">
+            <!-- LOCAL INFORMATION -->
+            <div class="col-sm-6">
+
+              <h3><span class="fa fa-user"></span> Local</h3>
+      
+              <% if (user.local.email) { %>
+                <p>
+                  <strong>id</strong>: <%= user._id %><br>
+                    <strong>email</strong>: <%= user.local.email %><br>
+                      <strong>password</strong>: <%= user.local.password %>
+                </p>
+      
+                <a href="/unlink/local" class="btn btn-default">Delete Account</a>
+                <% } else { %>
+                  <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                  <% } %>
+      
+      
+            </div>
+    </div>
+  </div>
+  
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

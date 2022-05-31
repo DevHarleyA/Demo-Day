@@ -8,12 +8,89 @@
     <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <nav class="navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-        
+    <!-- Navagation Bar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">The Fun Movement</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#sign-up" class="nav-link">Sign-Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
+    <!-- top intro -->
+    <section class="bg-dark text-light p-5 p-lg-4 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <!-- this will be our flexbox -->
+                <div>
+                    <h1 class="text-info">The Fun Movement</h1>
+                    <br>
+                    <h3>Do you have some <span class="text-info">Free Time?</span></h3>
+                    <p class="lead my-4">
+                        We focus on teaching our students. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, explicabo? Ipsam perferendis officia expedita voluptatem eveniet quisquam laborum nam iure.
+                    </p>
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#sign-up">Sign-Up Today!</button>
+                    <!-- modal at bottom of page -->
+                </div>
+                <img class="img-fluid w-25 d-none d-sm-block" src="public/img/children.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- what is this -->
+    <section id="learn" class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="public/img/undraw_quality_time_wiyl.svg" class="img-fluid w-75" alt="">
+                </div>
+                <div class="col-md p-5">
+                    <h2>What is the Fun Movement?</h2>
+                    <p class="lead">A place for children and their caregivers to learn and grow together.</p>
+                    <p>This is a database designed to help parents and caregivers find fun, cost-efficient, and accessible activities in the city of Philadelphia. Parents/Caregivers will begin by taking a simple survey. Based on their answers, the database will show three options for children in a given age range.</p>
+                    <a href="#" class="btn btn-light mt-3"><i class="bi bi-chevron-right"></i>Sounds good, sign me up!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="learn" class="p-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <h2 class="text-center">Sample Profiles</h2>
+                <div class="col-md p-5 text-center">
+                    <h3>The Philadelphia Art Museum</h3>
+                    <img src="public/img/art_museum.jpeg" class="img-fluid w-75 p-4" alt="">
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, modi nam necessitatibus possimus est tenetur!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa sequi ipsum ratione itaque! Laborum enim dolores nemo dolorum? Blanditiis nam veritatis vitae veniam doloribus voluptas, vero velit labore id?</p>
+                    <a href="#" class="btn btn-light mt-3"><i class="bi bi-chevron-right"></i>See full profile</a>
+                </div>
+                <div class="col-md p-5 text-center">
+                    <h3>Practice a New Skill with an Adult</h3>
+                    <img src="public/img/family.jpg" class="img-fluid w-50" alt="">
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, modi nam necessitatibus possimus est tenetur!</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsa sequi ipsum ratione itaque! Laborum enim dolores nemo dolorum? Blanditiis nam veritatis vitae veniam doloribus voluptas, vero velit labore id?</p>
+                    <a href="#" class="btn btn-light mt-3"><i class="bi bi-chevron-right"></i>See full profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
