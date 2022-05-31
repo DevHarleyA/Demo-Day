@@ -1,34 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-/* footer styling */
-
-footer {
-    display: flex;
-    justify-content: center;
-}
-
-ul {
-    list-style: none;
-    display: flex;
-}
-
-li {
-    float: left;
-    margin: 1%;
-    font-size: 1.5rem;
-}
-
-a {
-    text-decoration: none;
-    transition: color .5s
-}
-
-a:hover {
-    color: red;
+body::before {
+    display: block;
+    content: '';
+    height: 60px;
 }

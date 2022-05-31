@@ -4,20 +4,12 @@ module.exports = function(app, passport, db) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('login.ejs');
+        res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('messages').find().toArray((err, result) => {
-          if (err) return console.log(err)
-          res.render('profile.ejs', {
-            user : req.user,
-            // now whenever someone makes a req, you also get info about logged in user
-            messages: result
-            // this is the messages linked in our profile.ejs
-          })
-        })
+        res.render('profile.ejs')
     });
 
     // LOGOUT ==============================
