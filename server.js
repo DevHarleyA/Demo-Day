@@ -1,8 +1,9 @@
-
 const express  = require('express');
 const app      = express();
 const port     = process.env.PORT || 7000;
 
+require('dotenv').config()
+// console.log(process.env)
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -12,7 +13,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const session      = require('express-session');
 const configDB = require('./config/database.js');
-const env = require('dotenv').config()
 var db
 
 // configuration ===============================================================
@@ -46,4 +46,4 @@ app.use(flash());
 
 // launch ======================================================================
 app.listen(port);
-console.log('Pursue your next adventure at port ' + port);
+console.log('Pursue your next adventure on port ' + port);

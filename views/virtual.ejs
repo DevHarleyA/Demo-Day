@@ -135,97 +135,87 @@
             </div>
             <div class="header-wrap-clone"></div>
         </header><!-- #header end -->
+
         <div class="container">
-            <div class="col-6">
-                <h1 class="title"><span class="fa fa-sign-in"></span> Login</h1>
-    
-                <!-- LOGIN FORM -->
-                <form action="/login" method="post">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control" name="email">
+            <h1>Virtual & At Home Activities</h1>
+            <div class="row row-cols-2 ">
+                <% for (let i = 0; i < activities.length; i++) {%>
+                    <div class="col">
+                        <p>Activity Name: <%=activities[i].activity_name%></p>
+                        <p><a href="<%=activities[i].url%>" target="_blank">Link to Website</a></p>
+                        <p><a href="/" class="button button-3d button-rounded gradient-blue-purple"><i class="bi-info-circle"></i>View More Information</a></p>
                     </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
-                </form>
-    
-                <hr>
-    
-                <p>Need an account? <a href="/signup">Signup</a></p>
-                <p>Or go <a href="/">home</a>.</p>
+                <%}%>
             </div>
+
         </div>
 
-    </div>
-    <!-- Footer
+        <!-- Footer
 		============================================= -->
-    <footer id="footer" class="dark border-0">
+        <footer id="footer" class="dark border-0">
 
-        <div class="container center">
-            <div class="footer-widgets-wrap">
+            <div class="container center">
+                <div class="footer-widgets-wrap">
 
-                <div class="row mx-auto clearfix">
+                    <div class="row mx-auto clearfix">
 
-                    <div class="col-lg-4">
+                        <div class="col-lg-4">
 
-                        <div class="widget clearfix">
-                            <h4>Site Links</h4>
+                            <div class="widget clearfix">
+                                <h4>Site Links</h4>
 
-                            <ul class="list-unstyled footer-site-links mb-0">
-                                <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo" data-speed="1250"
-                                        data-offset="70">Top</a></li>
-                                <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">About / Log-In</a></li>
-                                <li><a href="#" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Contact</a></li>
-                            </ul>
+                                <ul class="list-unstyled footer-site-links mb-0">
+                                    <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
+                                            data-speed="1250" data-offset="70">Top</a></li>
+                                    <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                                            data-speed="1250" data-offset="70">About / Log-In</a></li>
+                                    <li><a href="#" data-scrollto="#section-contact" data-easing="easeInOutExpo"
+                                            data-speed="1250" data-offset="70">Contact</a></li>
+                                </ul>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="col-lg-4">
 
-                    <div class="col-lg-4">
+                            <div class="widget clearfix">
+                                <h4>Contact / Connect</h4>
 
-                        <div class="widget clearfix">
-                            <h4>Contact / Connect</h4>
+                                <p class="lead">Email: <br>aharleydev@gmail.com</p>
 
-                            <p class="lead">Email: <br>aharleydev@gmail.com</p>
-
-                            <div class="center topmargin-sm">
-                                <a href="https://twitter.com/DevHarleyA"
-                                    class="social-icon inline-block border-0 si-small si-twitter" title="Twitter">
-                                    <i class="icon-twitter"></i>
-                                    <i class="icon-twitter"></i>
-                                </a>
-                                <a href="https://github.com/DevHarleyA"
-                                    class="social-icon inline-block border-0 si-small si-github" title="Github">
-                                    <i class="icon-github"></i>
-                                    <i class="icon-github"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/harleyalexandra/"
-                                    class="social-icon inline-block border-0 si-small si-linkedin" title="LinkedIn">
-                                    <i class="icon-linkedin"></i>
-                                    <i class="icon-linkedin"></i>
-                                </a>
+                                <div class="center topmargin-sm">
+                                    <a href="https://twitter.com/DevHarleyA"
+                                        class="social-icon inline-block border-0 si-small si-twitter" title="Twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="https://github.com/DevHarleyA"
+                                        class="social-icon inline-block border-0 si-small si-github" title="Github">
+                                        <i class="icon-github"></i>
+                                        <i class="icon-github"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/harleyalexandra/"
+                                        class="social-icon inline-block border-0 si-small si-linkedin" title="LinkedIn">
+                                        <i class="icon-linkedin"></i>
+                                        <i class="icon-linkedin"></i>
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
-        </div>
 
-        <div id="copyrights">
-            <div class="container center clearfix">
-                Copyright &copy; DevHarleyA 2022 || All Rights Reserved
+            <div id="copyrights">
+                <div class="container center clearfix">
+                    Copyright &copy; DevHarleyA 2022 || All Rights Reserved
+                </div>
             </div>
-        </div>
 
-    </footer><!-- #footer end -->
+        </footer><!-- #footer end -->
 
     </div><!-- #wrapper end -->
 

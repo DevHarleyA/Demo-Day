@@ -1,16 +1,45 @@
 module.exports = function(app, passport, db) {
-// db is the connection where we can find everything
 // normal routes ===============================================================
-
-    // show the home page (will also have our login links)
+    // show the home page
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs')
+        db.collection('fun-movement').find().toArray((err, result) => {
+            if (err) return console.log(err)
+            res.render('profile.ejs', {
+                user: req.user
+            })
+        })
     });
+
+    // ACTIVITIES PAGES =======================
+
+    const activityCollection = db.collection('activities')
+
+    app.get('/outside', isLoggedIn, function(req, res) {
+        activityCollection.find().toArray()
+            .then(results => {
+                let notVirtual = results.filter(element => element.virtual === false)
+                res.render('outside.ejs', {
+                    user: req.user,
+                    activities: notVirtual
+                })
+            })
+    })
+
+    app.get('/virtual', isLoggedIn, function(req, res) {
+        activityCollection.find().toArray()
+            .then(results => {
+                let virtual = results.filter(element => element.virtual === true)
+                res.render('virtual.ejs', {
+                    user: req.user,
+                    activities: virtual
+                })
+            })
+    })
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
