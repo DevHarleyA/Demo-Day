@@ -1,4 +1,4 @@
-module.exports = function(app, passport, db) {
+module.exports = function(app, passport, db, multer, ObjectId) {
 // normal routes ===============================================================
     // show the home page
     app.get('/', function(req, res) {
@@ -7,17 +7,24 @@ module.exports = function(app, passport, db) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('fun-movement').find().toArray((err, result) => {
-            if (err) return console.log(err)
-            res.render('profile.ejs', {
-                user: req.user
+        favoriteCollection.find({user_id: req.user._id.toString()}).toArray()
+            .then(results => {
+                // let thisUser = results.filter(element => { 
+                //     console.log(req.user._id, element.user_id, element.user_id === req.user._id, element.user_id === req.user._id.toString())
+                //     return element.user_id === req.user._id.toString()
+                // }) this is the backend filter, mongo filter above (in find params)
+                console.log(results)
+                res.render('profile.ejs', {
+                    user: req.user,
+                    activities: results
+                })
             })
-        })
     });
 
     // ACTIVITIES PAGES =======================
 
     const activityCollection = db.collection('activities')
+    const favoriteCollection = db.collection('favorited')
 
     app.get('/outside', isLoggedIn, function(req, res) {
         activityCollection.find().toArray()
@@ -30,6 +37,18 @@ module.exports = function(app, passport, db) {
             })
     })
 
+    app.get('/post/:zebra', isLoggedIn, function(req, res) {
+        let postId = ObjectId(req.params.zebra)
+        console.log(postId)
+        activityCollection.find({_id: postId}).toArray((err, result) => {
+          if (err) return console.log(err)
+          res.render('post.ejs', {
+            user: req.user,
+            posts: result
+          })
+        })
+    });
+
     app.get('/virtual', isLoggedIn, function(req, res) {
         activityCollection.find().toArray()
             .then(results => {
@@ -41,6 +60,7 @@ module.exports = function(app, passport, db) {
             })
     })
 
+
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();
@@ -49,7 +69,19 @@ module.exports = function(app, passport, db) {
 
 // CRUD routes ===============================================================
 
-
+    app.post('/addAdventure', (req, res) => {
+        favoriteCollection.save({
+            activity_id: req.body.activity_id,
+            activity_name: req.body.activity_name,
+            user_id: req.body.user_id,
+            completed: false,
+            feedback: ''
+        }, (err, result) => {
+            if (err) return console.log(err)
+            console.log('saved to database')
+            res.redirect('/profile')
+        })
+    })
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) => dont touch, it works==================================================

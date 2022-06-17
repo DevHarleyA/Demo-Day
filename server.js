@@ -3,11 +3,12 @@ const app      = express();
 const port     = process.env.PORT || 7000;
 
 require('dotenv').config()
-// console.log(process.env)
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
 const passport = require('passport');
 const flash    = require('connect-flash');
+const ObjectId = require('mongodb').ObjectId
+const multer = require('multer')
 const morgan       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
@@ -21,7 +22,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db);
+  require('./app/routes.js')(app, passport, db, multer, ObjectId);
 }); 
 
 require('./config/passport')(passport);
