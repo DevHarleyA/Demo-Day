@@ -10,18 +10,18 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     <!-- One Page Module Specific Stylesheet -->
-    <link rel="stylesheet" href="/css/onepage.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/onepage.css" type="text/css" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/dark.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/font-icons.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/et-line.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/animate.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/fonts.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/custom.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/et-line.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="/css/custom.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Document Title
@@ -137,24 +137,45 @@
         </header><!-- #header end -->
 
         <div class="container text-center">
-            <a href="/outside" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
-                Back to Outside Adventures</a>
             <% for(var i=0; i<posts.length; i++) {%>
-            <div class="col-sm-6">
-                    <h1><%= posts[i].activity_name %></h1>
-                    <img src="../<%= posts[i].img %>" alt="">
-            </div>
-            <% if (user.local.email) { %>
-            <form action="/addAdventure" method="post">
-                <input type="hidden" name="activity_id" value="<%= posts[i]._id %>">
-                <input type="hidden" name="activity_name" value="<%= posts[i].activity_name %>">
-                <input type="hidden" name="user_id" value="<%= user._id %>">
-                <button type="submit" class="button button-3d button-rounded gradient-blue-purple">Add to Awaiting Adventures</button>
-            </form>
-            <% } %>
-            <iframe src="<%= posts[i].map %>" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
+                    <h1>
+                        <%= posts[i].activity_name %>
+                    </h1>
+                    <img src="../<%= posts[i].img %>" alt="" class="img-fluid rounded">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p>
+                                <%= posts[i].desc %>
+                            </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            Description by <cite title="source"><a href="<%= posts[i].desc_src %>">
+                                    <%= posts[i].desc_src_name %>
+                                </a></cite>
+                        </figcaption>
+                    </figure>
+                    <a href="<%= posts[i].url %>">Go to the Website</a>
+                    <p> <strong>Additional Information:</strong><br>
+                        <%= posts[i].free_days %>
+                    </p>
+                    <% if (user.local.email) { %>
+                        <form action="/addAdventure" method="post">
+                            <input type="hidden" name="activity_id" value="<%= posts[i]._id %>">
+                            <input type="hidden" name="activity_name" value="<%= posts[i].activity_name %>">
+                            <input type="hidden" name="user_id" value="<%= user._id %>">
+                            <button type="submit" class="button button-3d button-rounded gradient-blue-purple">Add to
+                                Awaiting Adventures</button>
+                        </form>
+                        <% } %>
+                            <a href="/outside" class="button button-3d button-rounded gradient-blue-purple m-2"><i
+                                    class="icon-laugh"></i>
+                                Back to Outside Adventures</a>
+                            <iframe src="<%= posts[i].map %>" width="400" height="300" style="border:0;"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <% } %>
+                            <% } %>
+                </div>
         </div>
 
 

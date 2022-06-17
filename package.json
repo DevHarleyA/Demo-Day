@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fun": "nodemon server.js"
+    "fun": "node server.js",
+    "funMon": "nodemon server.js"
   },
   "repository": {
     "type": "git",

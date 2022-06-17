@@ -13,7 +13,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
                 //     console.log(req.user._id, element.user_id, element.user_id === req.user._id, element.user_id === req.user._id.toString())
                 //     return element.user_id === req.user._id.toString()
                 // }) this is the backend filter, mongo filter above (in find params)
-                console.log(results)
+                // console.log(results)
                 res.render('profile.ejs', {
                     user: req.user,
                     activities: results
@@ -72,7 +72,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     app.post('/addAdventure', (req, res) => {
         favoriteCollection.save({
             activity_id: req.body.activity_id,
-            activity_name: req.body.activity_name,
+            activity_name: req.body.activity_name.toLowerCase(),
             user_id: req.body.user_id,
             completed: false,
             feedback: ''
@@ -80,6 +80,15 @@ module.exports = function(app, passport, db, multer, ObjectId) {
             if (err) return console.log(err)
             console.log('saved to database')
             res.redirect('/profile')
+        })
+    })
+
+    app.delete('/remove', (req, res) => {
+        favoriteCollection.findOneAndDelete({
+            activity_name: req.body.activity.toLowerCase()
+        }, (err, result) => {
+            if (err) return res.send(500, err)
+            res.send('Activity deleted!')
         })
     })
 
