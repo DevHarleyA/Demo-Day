@@ -14,9 +14,12 @@ module.exports = function(app, passport, db, multer, ObjectId) {
                 //     return element.user_id === req.user._id.toString()
                 // }) this is the backend filter, mongo filter above (in find params)
                 // console.log(results)
+                let awaiting = results.filter(element => element.completed === false)
+                let done = results.filter(element => element.completed === true)
                 res.render('profile.ejs', {
                     user: req.user,
-                    activities: results
+                    activities: awaiting,
+                    completed: done
                 })
             })
     });
@@ -80,6 +83,21 @@ module.exports = function(app, passport, db, multer, ObjectId) {
             if (err) return console.log(err)
             console.log('saved to database')
             res.redirect('/profile')
+        })
+    })
+
+    app.put('/adventureComplete', (req, res) => {
+        favoriteCollection.findOneAndUpdate({ activity_name: req.body.activity.toLowerCase()}, {
+            $set: {
+                completed: true,
+                feedback: req.body.feedback
+            }
+        }, {
+            sort: { _id: -1},
+            upsert: false
+        }, (err, result) => {
+            if (err) return res.send(err)
+            res.send(result)
         })
     })
 

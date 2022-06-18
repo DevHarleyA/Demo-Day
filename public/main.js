@@ -21,4 +21,29 @@ Array.from(remove).forEach(function(element) {
     })
 })
 
-document.querySelector("#wrapper > div > div.container > div > div.col- > ol > li:nth-child(1) > p > a > span")
+Array.from(activity).forEach(function(element) {
+    element.addEventListener('click', function(){
+        const activity = this.parentNode.childNodes[1].childNodes[1].childNodes[3].innerText
+        const feedback = this.parentNode.childNodes[3].value
+        console.log(activity, feedback)
+
+        if (feedback.length == 0){
+            alert('Please submit your feedback, or write N/A to continue.')
+            return
+        }
+
+        fetch('adventureComplete', {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'activity': activity,
+                'feedback': feedback
+            })
+        })
+        .then(function (response) {
+            window.location.reload()
+        })
+    })
+})

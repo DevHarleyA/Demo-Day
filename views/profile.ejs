@@ -152,36 +152,52 @@
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-">
-            <h1>Adventures Awaiting</h1>
-            <ol>
-              <% for(let i=0; i < activities.length; i++) {%>
-                <li>
-                  <p>
-                    <a href="/post/<%= activities[i].activity_id %>"
-                      class="button button-circle button-reveal button-medium button-purple">
-                      <i class="icon-line2-magnifier"></i>
-                      <span meta="<%= activities[i].activity_id %>">
-                        <%= activities[i].activity_name %>
-                      </span>
-                    </a>
-                  </p>
-                  <textarea name="report" cols="50" rows="5"
-                    placeholder="Did you complete your adventure? How did it go?" required></textarea> <br>
-                  <button class="button button-reveal button-circle gradient-blue-purple accomplished"><i
-                      class="icon-line-circle-check"></i><span>Complete My Adventure</span></button>
-                  <button class="button button-reveal button-circle gradient-blue-purple mistake"><i
-                      class="icon-ban-circle"></i><span>Remove this Adventure</span></button>
-                </li>
-                <% } %>
-            </ol>
-          </div>
-          <div class="col-6">
-            <h1>Completed Adventures</h1>
-            <!-- EJS loop to make tasks marked completed appear in a list. If empty, display a message of encouragement to pursue the next adventure! -->
-          </div>
+      <div class=" container">
+        <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
+          <h1>Adventures Awaiting</h1>
+          <ol>
+            <% for(let i=0; i < activities.length; i++) {%>
+              <li class="m-2 p-2">
+                <p>
+                  <a href="/post/<%= activities[i].activity_id %>"
+                    class="button button-circle button-reveal button-purple">
+                    <i class="icon-line2-magnifier"></i>
+                    <span>
+                      <%= activities[i].activity_name %>
+                    </span>
+                  </a>
+                </p>
+                <textarea name="report" cols="50" rows="5" placeholder="Did you complete your adventure? How did it go?"
+                  id="feedback"></textarea> <br>
+                <button class="button button-reveal button-circle gradient-blue-purple accomplished"><i
+                    class="icon-line-circle-check"></i><span>Complete My Adventure</span></button>
+                <button class="button button-reveal button-circle gradient-blue-purple mistake"><i
+                    class="icon-ban-circle"></i><span>Remove this Adventure</span></button>
+              </li>
+              <% } %>
+          </ol>
+        </div>
+        <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
+          <h1>Completed Adventures</h1>
+          <ul>
+            <% for(let i=0; i < completed.length; i++) {%>
+              <li class="m-2 p-2">
+                <p>
+                  <a href="/post/<%= completed[i].activity_id %>"
+                    class="button button-circle button-reveal button-purple">
+                    <i class="icon-line2-magnifier"></i>
+                    <span>
+                      <%= completed[i].activity_name %>
+                    </span>
+                  </a>
+                </p>
+                <p>Activity Report: <%= completed[i].feedback %>
+                </p>
+                <button class="button button-reveal button-circle gradient-blue-purple mistake"><i
+                    class="icon-ban-circle"></i><span>Permanently Delete from Profile</span></button>
+              </li>
+              <% } %>
+          </ul>
         </div>
       </div>
     </div>
