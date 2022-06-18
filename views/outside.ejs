@@ -9,24 +9,24 @@
     <link
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
         rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     <!-- One Page Module Specific Stylesheet -->
-    <link rel="stylesheet" href="css/onepage.css" type="text/css" />
+    <link rel="stylesheet" href="/css/onepage.css" type="text/css" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/dark.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/et-line.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/et-line.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="/css/custom.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Document Title
 	============================================= -->
-    <title>The Fun Movement</title>
+    <title>The Fun Movement: Outdoor Activities & Adventures</title>
 </head>
 
 <body class="stretched side-push-panel">
@@ -137,12 +137,14 @@
         </header><!-- #header end -->
 
         <div class="container">
-            <h1>Outdoor Adventures</h1>
+            <a href="/profile" class="button button-3d button-rounded gradient-earth"><i class="icon-line-home"></i>Back to Profile</a>
+            <h1 class="mt-4">Outdoor Adventures</h1>
             <div class="row row-cols-2 ">
                 <% for (let i = 0; i < activities.length; i++) {%>
                     <div class="col">
-                        <p>Activity Name: <%=activities[i].activity_name%></p>
-                        <p><a href="/post/<%= activities[i]._id %>" class="button button-3d button-rounded gradient-blue-purple"><i class="bi-info-circle"></i>View More Information</a></p>
+                        <p><strong>Activity:</strong> <%=activities[i].activity_name%></p>
+                        <p><strong>What:</strong> <%= activities[i].short_desc %></p>
+                        <p><a href="/post/<%= activities[i]._id %>" class="button button-3d button-rounded gradient-green-blue"><i class="icon-line-info"></i>View More Information</a></p>
                     </div>
                 <%}%>
             </div>
@@ -225,12 +227,12 @@
 
     <!-- JavaScripts
 	============================================= -->
-    <script src="js/jquery.js"></script>
-    <script src="js/plugins.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/plugins.min.js"></script>
 
     <!-- Footer Scripts
 	============================================= -->
-    <script src="js/functions.js"></script>
+    <script src="/js/functions.js"></script>
 
 </body>
 

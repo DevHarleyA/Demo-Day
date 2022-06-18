@@ -141,14 +141,12 @@
                 <%= user.local.fname %>
                   <%= user.local.lname %>
               </span>!</h3>
-            <% } %>
-        </div>
-        <div class="col-4">
-          <h4>What shall we do today?</h4>
+              <h4>What shall we do today?</h4>
           <a href="/outside" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
             Outside Adventures</a>
           <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
             Home and Virtual Adventures</a>
+            <% } %>
         </div>
       </div>
 
@@ -159,11 +157,10 @@
             <% for(let i=0; i < activities.length; i++) {%>
               <li class="m-2 p-2">
                 <p>
-                  <a href="/post/<%= activities[i].activity_id %>"
-                    class="button button-circle button-reveal button-purple">
+                  <a href="/post/<%= activities[i].activity_id %>">
                     <i class="icon-line2-magnifier"></i>
                     <span>
-                      <%= activities[i].activity_name %>
+                      <%= activities[i].activity_name.toUpperCase() %>
                     </span>
                   </a>
                 </p>
@@ -179,15 +176,14 @@
         </div>
         <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
           <h1>Completed Adventures</h1>
-          <ul>
+          <ol>
             <% for(let i=0; i < completed.length; i++) {%>
               <li class="m-2 p-2">
                 <p>
-                  <a href="/post/<%= completed[i].activity_id %>"
-                    class="button button-circle button-reveal button-purple">
+                  <a href="/post/<%= completed[i].activity_id %>">
                     <i class="icon-line2-magnifier"></i>
                     <span>
-                      <%= completed[i].activity_name %>
+                      <%= completed[i].activity_name.toUpperCase() %>
                     </span>
                   </a>
                 </p>
@@ -197,7 +193,7 @@
                     class="icon-ban-circle"></i><span>Permanently Delete from Profile</span></button>
               </li>
               <% } %>
-          </ul>
+          </ol>
         </div>
       </div>
     </div>

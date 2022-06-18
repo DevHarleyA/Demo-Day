@@ -1,8 +1,8 @@
 const activity = document.getElementsByClassName('accomplished')
 const remove = document.getElementsByClassName('mistake')
 
-Array.from(remove).forEach(function(element) {
-    element.addEventListener('click', function(){
+Array.from(remove).forEach(function (element) {
+    element.addEventListener('click', function () {
         const activity = this.parentNode.childNodes[1].childNodes[1].childNodes[3].innerText
         console.log(activity)
 
@@ -15,19 +15,19 @@ Array.from(remove).forEach(function(element) {
                 'activity': activity
             })
         })
-        .then(function (response) {
-            window.location.reload()
-        })
+            .then(function (response) {
+                window.location.reload()
+            })
     })
 })
 
-Array.from(activity).forEach(function(element) {
-    element.addEventListener('click', function(){
+Array.from(activity).forEach(function (element) {
+    element.addEventListener('click', function () {
         const activity = this.parentNode.childNodes[1].childNodes[1].childNodes[3].innerText
         const feedback = this.parentNode.childNodes[3].value
         console.log(activity, feedback)
 
-        if (feedback.length == 0){
+        if (feedback.length == 0) {
             alert('Please submit your feedback, or write N/A to continue.')
             return
         }
@@ -42,8 +42,8 @@ Array.from(activity).forEach(function(element) {
                 'feedback': feedback
             })
         })
-        .then(function (response) {
-            window.location.reload()
-        })
+            .then(function (response) {
+                window.location.reload()
+            })
     })
 })

@@ -26,7 +26,7 @@
 
     <!-- Document Title
 	============================================= -->
-    <title>The Fun Movement</title>
+    <title>The Fun Movement: Virtual & At Home Activities</title>
 </head>
 
 <body class="stretched side-push-panel">
@@ -137,17 +137,17 @@
         </header><!-- #header end -->
 
         <div class="container">
-            <h1>Virtual & At Home Activities</h1>
+            <a href="/profile" class="button button-3d button-rounded gradient-earth"><i class="icon-line-home"></i>Back to Profile</a>
+            <h1 class="mt-4">Virtual & At Home Adventures</h1>
             <div class="row row-cols-2 ">
                 <% for (let i = 0; i < activities.length; i++) {%>
                     <div class="col">
-                        <p>Activity Name: <%=activities[i].activity_name%></p>
-                        <p><a href="<%=activities[i].url%>" target="_blank">Link to Website</a></p>
-                        <p><a href="/" class="button button-3d button-rounded gradient-blue-purple"><i class="bi-info-circle"></i>View More Information</a></p>
+                        <p><strong>Activity:</strong> <%=activities[i].activity_name%></p>
+                        <p><strong>What:</strong> <%= activities[i].short_desc %></p>
+                        <p><a href="/postTwo/<%=activities[i]._id%>" class="button button-3d button-rounded gradient-green-blue"><i class="icon-line-info"></i>View More Information</a></p>
                     </div>
                 <%}%>
             </div>
-
         </div>
 
         <!-- Footer
