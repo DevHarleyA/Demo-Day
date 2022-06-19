@@ -137,8 +137,9 @@
         </header><!-- #header end -->
 
         <div class="container">
-            <a href="/profile" class="button button-3d button-rounded gradient-earth"><i class="icon-line-home"></i>Back to Profile</a>
+            <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i class="icon-line-home"></i>Back to Profile</a>
             <h1 class="mt-4">Outdoor Adventures</h1>
+            <a href="/post/<%= outdoorRandom %>" class="button button-3d button-rounded gradient-earth randomizer mb-3"><i class="icon-random1"></i>Get Random Activity</a>
             <div class="row row-cols-2 ">
                 <% for (let i = 0; i < activities.length; i++) {%>
                     <div class="col">
@@ -229,6 +230,7 @@
 	============================================= -->
     <script src="/js/jquery.js"></script>
     <script src="/js/plugins.min.js"></script>
+    <script src="/main.js"></script>
 
     <!-- Footer Scripts
 	============================================= -->

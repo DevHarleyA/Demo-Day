@@ -1,3 +1,4 @@
+// Profile Page Styling
 const activity = document.getElementsByClassName('accomplished')
 const remove = document.getElementsByClassName('mistake')
 
@@ -47,3 +48,14 @@ Array.from(activity).forEach(function (element) {
             })
     })
 })
+
+// Randomizers
+
+// document.querySelector('.randomizer').addEventListener('click', getRandom)
+
+// function getRandom() {
+//     let length = document.querySelector('.panda').value
+//     // console.log(length)
+//     let random = Math.floor(Math.random() * length)
+//     document.querySelector('.randomizer').href = `<=% activities[${random}]_id %>`
+// }

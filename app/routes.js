@@ -33,9 +33,14 @@ module.exports = function (app, passport, db, multer, ObjectId) {
         activityCollection.find().toArray()
             .then(results => {
                 let notVirtual = results.filter(element => element.virtual === false)
+                let length = notVirtual.length
+                let random = Math.floor(Math.random() * length)
+                result = notVirtual[random]
+                console.log(result)
                 res.render('outside.ejs', {
                     user: req.user,
-                    activities: notVirtual
+                    activities: notVirtual,
+                    outdoorRandom: result._id
                 })
             })
     })
@@ -56,9 +61,14 @@ module.exports = function (app, passport, db, multer, ObjectId) {
         activityCollection.find().toArray()
             .then(results => {
                 let virtual = results.filter(element => element.virtual === true)
+                let length = virtual.length
+                let random = Math.floor(Math.random() * length)
+                result = virtual[random]
+                console.log(result)
                 res.render('virtual.ejs', {
                     user: req.user,
-                    activities: virtual
+                    activities: virtual,
+                    virtualRandom: result._id
                 })
             })
     })
