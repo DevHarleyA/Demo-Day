@@ -121,11 +121,6 @@
 
                             <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
                                 data-offset="65">
-                                <li class="menu-item">
-                                    <a href="/profile" class="menu-link">
-                                        <div>My Profile</div>
-                                    </a>
-                                </li>
                             </ul>
 
                         </nav><!-- #primary-menu end -->
@@ -139,9 +134,9 @@
         <div class="container text-center">
             <% for(var i=0; i<posts.length; i++) {%>
                 <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
-                    <h1>
+                    <p class="fs-1">
                         <%= posts[i].activity_name %>
-                    </h1>
+                    </p>
                     <img src="../<%= posts[i].img %>" alt="" class="img-fluid rounded">
                     <figure class="text-center">
                         <blockquote class="blockquote">
@@ -155,10 +150,7 @@
                                 </a></cite>
                         </figcaption>
                     </figure>
-                    <a href="<%= posts[i].url %>" target="_blank">Go to the Website</a>
-                    <!-- <p> <strong>Additional Information:</strong><br>
-                        <%= posts[i].free_days %>
-                    </p> -->
+                    <p class="fs-4"><a href="<%= posts[i].url %>" target="_blank">Go to the Website</a></p>
                     <% if (user.local.email) { %>
                         <form action="/addAdventure" method="post">
                             <input type="hidden" name="activity_id" value="<%= posts[i]._id %>">
@@ -168,7 +160,7 @@
                                 Awaiting Adventures</button>
                         </form>
                         <% } %>
-                        <h3>Adventure Instructions: </h3>
+                        <p class="fs-3">Adventure Instructions: </p>
                         <p><%= posts[i].instructions %></p>
                             <% } %>
                                 <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple m-2"><i
@@ -195,11 +187,13 @@
 
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Top</a></li>
-                                    <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">About / Log-In</a></li>
-                                    <li><a href="#" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Contact</a></li>
+                                        data-speed="1250" data-offset="70">Top</a></li>
+                                <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                                        data-speed="1250" data-offset="70">Profile</a></li>
+                                <li><a href="/virtual" data-scrollto="#section-contact" data-easing="easeInOutExpo"
+                                        data-speed="1250" data-offset="70">Virtual & At Home Activities</a></li>
+                                <li><a href="/" data-scrollto="#wrapper" data-easing="easeInOutExpo"
+                                        data-speed="1250" data-offset="70">Home Page (Logout)</a></li>
                                 </ul>
                             </div>
 

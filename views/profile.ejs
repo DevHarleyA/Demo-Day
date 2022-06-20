@@ -118,11 +118,6 @@
             <nav class="primary-menu">
 
               <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
-                <li class="menu-item">
-                  <a href="/" class="menu-link" data-href="#wrapper">
-                    <div>Home</div>
-                  </a>
-                </li>
               </ul>
 
             </nav><!-- #primary-menu end -->
@@ -133,68 +128,70 @@
       <div class="header-wrap-clone"></div>
     </header><!-- #header end -->
 
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
+    <div>
+        <div class="p-5">
           <% if (user.local.email) { %>
             <h3>Welcome, <span>
                 <%= user.local.fname %>
                   <%= user.local.lname %>
               </span>!</h3>
-              <h4>What shall we do today?</h4>
+          <p><span class="fw-bold">How: </span><span class="fw-lighter">Begin by searching for an adventure. If you have already added adventures to your queue, see what adventures you can explore today!</span></p>
+          <button class="quoteMe">Inspire Me</button>
+          <p class="fs-3">What shall we do today?</p>
           <a href="/outside" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
-            Outside Adventures</a>
+            Outdoor Adventures</a>
           <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
-            Home and Virtual Adventures</a>
+            At Home Adventures</a>
             <% } %>
         </div>
       </div>
-
-      <div class=" container">
-        <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
-          <h1>Adventures Awaiting</h1>
-          <ol>
-            <% for(let i=0; i < activities.length; i++) {%>
-              <li class="m-2 p-2">
-                <p>
-                  <a href="/post/<%= activities[i].activity_id %>">
-                    <i class="icon-line2-magnifier"></i>
-                    <span>
-                      <%= activities[i].activity_name.toUpperCase() %>
-                    </span>
-                  </a>
-                </p>
-                <textarea name="report" cols="50" rows="5" placeholder="Did you complete your adventure? How did it go?"
-                  id="feedback"></textarea> <br>
-                <button class="button button-reveal button-circle gradient-blue-purple accomplished"><i
-                    class="icon-line-circle-check"></i><span>Complete My Adventure</span></button>
-                <button class="button button-reveal button-circle gradient-blue-purple mistake"><i
-                    class="icon-ban-circle"></i><span>Remove this Adventure</span></button>
-              </li>
+      <div class="col-sm-12 mx-auto d-grid gap-3 p-5">
+        <p class="fs-1">Adventures Awaiting</p>
+        <ol>
+          <% for(let i=0; i < activities.length; i++) {%>
+          <li class="m-2 p-2">
+            <p>
+              <a href="/post/<%= activities[i].activity_id %>">
+                <i class="icon-line2-magnifier"></i>
+                <span>
+                  <%= activities[i].activity_name.toUpperCase() %>
+                </span>
+              </a>
+            </p>
+            <textarea name="report" cols="50" rows="5" placeholder="Did you complete your adventure? How did it go?" id="feedback"></textarea> <br>
+            <button class="button button-reveal button-circle gradient-blue-purple accomplished">
+              <i class="icon-line-circle-check"></i>
+              <span>Complete My Adventure</span>
+            </button>
+            <button class="button button-reveal button-circle gradient-blue-purple mistake">
+              <i class="icon-ban-circle"></i>
+              <span>Remove this Adventure</span>
+            </button>
+          </li>
               <% } %>
-          </ol>
-        </div>
-        <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
-          <h1>Completed Adventures</h1>
-          <ol>
-            <% for(let i=0; i < completed.length; i++) {%>
-              <li class="m-2 p-2">
-                <p>
-                  <a href="/post/<%= completed[i].activity_id %>">
-                    <i class="icon-line2-magnifier"></i>
-                    <span>
-                      <%= completed[i].activity_name.toUpperCase() %>
+        </ol>
+      </div>
+      <div class="col-sm-12 mx-auto d-grid gap-3 p-5">
+        <p class="fs-1">Completed Adventures</p>
+        <ol>
+          <% for(let i=0; i < completed.length; i++) {%>
+          <li class="m-2 p-2">
+            <p>
+              <a href="/post/<%= completed[i].activity_id %>">
+                <i class="icon-line2-magnifier"></i>
+                  <span>
+                    <%= completed[i].activity_name.toUpperCase() %>
                     </span>
-                  </a>
-                </p>
-                <p>Activity Report: <%= completed[i].feedback %>
-                </p>
-                <button class="button button-reveal button-circle gradient-blue-purple mistake"><i
-                    class="icon-ban-circle"></i><span>Permanently Delete from Profile</span></button>
-              </li>
-              <% } %>
-          </ol>
-        </div>
+              </a>
+            </p>
+            <p>Activity Report: <%= completed[i].feedback %></p>
+            <button class="button button-reveal button-circle gradient-blue-purple mistake">
+              <i class="icon-ban-circle"></i>
+              <span>Permanently Delete from Profile</span>
+            </button>
+          </li>
+          <% } %>
+        </ol>
       </div>
     </div>
 
@@ -214,12 +211,14 @@
               <h4>Site Links</h4>
 
               <ul class="list-unstyled footer-site-links mb-0">
-                <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo" data-speed="1250"
-                    data-offset="70">Top</a></li>
-                <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250"
-                    data-offset="70">About / Log-In</a></li>
-                <li><a href="#" data-scrollto="#section-contact" data-easing="easeInOutExpo" data-speed="1250"
-                    data-offset="70">Contact</a></li>
+                <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
+                  data-speed="1250" data-offset="70">Top</a></li>
+          <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                  data-speed="1250" data-offset="70">Profile</a></li>
+          <li><a href="/virtual" data-scrollto="#section-contact" data-easing="easeInOutExpo"
+                  data-speed="1250" data-offset="70">Virtual & At Home Activities</a></li>
+          <li><a href="/" data-scrollto="#wrapper" data-easing="easeInOutExpo"
+                  data-speed="1250" data-offset="70">Home Page (Logout)</a></li>
               </ul>
             </div>
 

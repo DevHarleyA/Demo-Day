@@ -49,13 +49,20 @@ Array.from(activity).forEach(function (element) {
     })
 })
 
-// Randomizers
+// Inspirational Quote API
 
-// document.querySelector('.randomizer').addEventListener('click', getRandom)
+document.querySelector('.quoteMe').addEventListener('click', quoteMe)
 
-// function getRandom() {
-//     let length = document.querySelector('.panda').value
-//     // console.log(length)
-//     let random = Math.floor(Math.random() * length)
-//     document.querySelector('.randomizer').href = `<=% activities[${random}]_id %>`
-// }
+
+function quoteMe() {
+    const url = 'https://zenquotes.io/api/today'
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(`error ${err}`)
+        })
+}

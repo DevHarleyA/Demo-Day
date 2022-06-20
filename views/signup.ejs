@@ -6,22 +6,17 @@
     <meta name="author" content="SemiColonWeb" />
     <!-- Stylesheets
 	============================================= -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
-        rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-
-    <!-- One Page Module Specific Stylesheet -->
-    <link rel="stylesheet" href="css/onepage.css" type="text/css" />
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/dark.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/et-line.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/onepage.css" type="text/css" />
+    <link rel="stylesheet" href="/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/et-line.css" type="text/css" />
+    <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="/css/custom.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Document Title
@@ -121,11 +116,6 @@
 
                             <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
                                 data-offset="65">
-                                <li class="menu-item">
-                                    <a href="/" class="menu-link" data-href="#wrapper">
-                                        <div>Home</div>
-                                    </a>
-                                </li>
                             </ul>
 
                         </nav><!-- #primary-menu end -->
@@ -135,47 +125,58 @@
             </div>
             <div class="header-wrap-clone"></div>
         </header><!-- #header end -->
+        <section id="content">
+			<div class="content-wrap py-0">
 
-        <div class="container">
-            <div class="col-6">
-        
-                <h1><span class="fa fa-sign-in"></span> Signup</h1>
-        
-                <% if (message.length> 0) { %>
-                    <div class="alert alert-danger">
-                        <%= message %>
-                    </div>
-                    <% } %>
-        
-                        <!-- LOGIN FORM -->
-                        <form action="/signup" method="post">
-                            <div class="form-group">
-                                <label>First Name:</label>
-                                <input type="text" class="form-control" name="fname" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name:</label>
-                                <input type="text" class="form-control" name="lname" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-        
-                            <button type="submit" class="btn btn-primary btn-lg">Signup</button>
-                        </form>
-        
-                        <hr>
-        
-                        <p>Already have an account? <a href="/login">Login</a></p>
-                        <p>Or go <a href="/">home</a>.</p>
-        
-            </div>
-        </div>
+				<div class="section p-0 m-0 h-100 position-absolute" style="background: url('images/phillycityview.jpg') center center no-repeat; background-size: cover;"></div>
+
+				<div class="section bg-transparent min-vh-100 p-0 m-0">
+					<div class="vertical-middle">
+						<div class="container-fluid py-5 mx-auto">
+
+							<div class="card mx-auto rounded-0 border-0" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
+								<div class="card-body" style="padding: 40px;">
+									<form action="/signup" method="post">
+										<h3>Create a New Account</h3>
+
+										<div class="row">
+											<div class="col-12 form-group">
+												<label>First Name:</label>
+												<input type="text" name="fname" class="form-control not-dark"/>
+											</div>
+                                            
+                                            <div class="col-12 form-group">
+												<label>Last Name:</label>
+												<input type="text" name="lname" class="form-control not-dark"/>
+											</div>
+                                            
+                                            <div class="col-12 form-group">
+												<label>Email Address:</label>
+												<input type="text" name="email" class="form-control not-dark"/>
+											</div>
+
+											<div class="col-12 form-group">
+												<label>Password:</label>
+												<input type="password" name="password" class="form-control not-dark" />
+											</div>
+
+											<div class="col-12 form-group">
+												<button class="button button-3d button-black m-0" >Signup</button>
+												<!-- <a href="#" class="float-end">Forgot Password?</a> -->
+											</div>
+										</div>
+									</form>
+
+                                    <p>Already have an account? <a href="/login">Login</a></p>
+                <p>Or go <a href="/">home</a>.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section><!-- #content end -->
 
         <!-- Footer
 		============================================= -->
@@ -194,10 +195,8 @@
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
                                             data-speed="1250" data-offset="70">Top</a></li>
-                                    <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">About / Log-In</a></li>
-                                    <li><a href="#" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Contact</a></li>
+                                            <li><a href="/" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                                                data-speed="1250" data-offset="70">Home Page</a></li>
                                 </ul>
                             </div>
 
