@@ -129,70 +129,96 @@
     </header><!-- #header end -->
 
     <div>
-        <div class="p-5">
-          <% if (user.local.email) { %>
-            <h3>Welcome, <span>
-                <%= user.local.fname %>
-                  <%= user.local.lname %>
-              </span>!</h3>
-          <p><span class="fw-bold">How: </span><span class="fw-lighter">Begin by searching for an adventure. If you have already added adventures to your queue, see what adventures you can explore today!</span></p>
-          <button class="quoteMe">Inspire Me</button>
+      <div class="p-3 container text-center">
+        <% if (user.local.email) { %>
+          <h3>Welcome, <span>
+              <%= user.local.fname %>
+                <%= user.local.lname %>
+            </span>!</h3>
+          <p><span class="fw-bold">How: </span><span class="fw-lighter">Begin by searching for an adventure. If you have
+              already added adventures to your queue, see what adventures you can explore today!</span></p>
           <p class="fs-3">What shall we do today?</p>
           <a href="/outside" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
             Outdoor Adventures</a>
           <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple"><i class="icon-laugh"></i>
-            At Home Adventures</a>
-            <% } %>
-        </div>
-      </div>
-      <div class="col-sm-12 mx-auto d-grid gap-3 p-5">
-        <p class="fs-1">Adventures Awaiting</p>
-        <ol>
-          <% for(let i=0; i < activities.length; i++) {%>
-          <li class="m-2 p-2">
-            <p>
-              <a href="/post/<%= activities[i].activity_id %>">
-                <i class="icon-line2-magnifier"></i>
-                <span>
-                  <%= activities[i].activity_name.toUpperCase() %>
-                </span>
-              </a>
-            </p>
-            <textarea name="report" cols="50" rows="5" placeholder="Did you complete your adventure? How did it go?" id="feedback"></textarea> <br>
-            <button class="button button-reveal button-circle gradient-blue-purple accomplished">
-              <i class="icon-line-circle-check"></i>
-              <span>Complete My Adventure</span>
-            </button>
-            <button class="button button-reveal button-circle gradient-blue-purple mistake">
-              <i class="icon-ban-circle"></i>
-              <span>Remove this Adventure</span>
-            </button>
-          </li>
-              <% } %>
-        </ol>
-      </div>
-      <div class="col-sm-12 mx-auto d-grid gap-3 p-5">
-        <p class="fs-1">Completed Adventures</p>
-        <ol>
-          <% for(let i=0; i < completed.length; i++) {%>
-          <li class="m-2 p-2">
-            <p>
-              <a href="/post/<%= completed[i].activity_id %>">
-                <i class="icon-line2-magnifier"></i>
-                  <span>
-                    <%= completed[i].activity_name.toUpperCase() %>
-                    </span>
-              </a>
-            </p>
-            <p>Activity Report: <%= completed[i].feedback %></p>
-            <button class="button button-reveal button-circle gradient-blue-purple mistake">
-              <i class="icon-ban-circle"></i>
-              <span>Permanently Delete from Profile</span>
-            </button>
-          </li>
+            Home Adventures</a>
           <% } %>
-        </ol>
       </div>
+    </div>
+    <div class= "p-3 container text-center">
+      
+        <p class="fs-1 fw-bolder">Adventures Awaiting</p>
+        <% if (activities.length===0) {%>
+        <p class="fw-lighter">There are currently no adventures pending.</p>
+        <% } else {%>
+        <div class="row row-cols-md-2">
+          <% for(let i=0; i < activities.length; i++) {%>
+          <div class="col p-5 text-center">
+            <div class="card w-auto" style="width: 18rem;">
+              <img src="<%=activities[i].img%>" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title fs-3">
+                  <a href="/post/<%= activities[i].activity_id %>">
+                    <i class="icon-line2-magnifier"></i>
+                    <span>
+                      <%= activities[i].activity_name.toUpperCase() %>
+                    </span>
+                  </a>
+                </h5>
+                <p class="card-text">
+                  <%= activities[i].short_desc %>
+                </p>
+                <textarea name="report" rows="3"
+                  placeholder="Type your adventure report here" id="feedback"></textarea>
+                <br>
+                <button class="button button-reveal button-circle gradient-blue-purple accomplished">
+                    <i class="icon-line-circle-check"></i>
+                    <span>Complete</span>
+                </button>
+                <button class="button button-reveal button-circle gradient-blue-purple mistake">
+                    <i class="icon-ban-circle"></i>
+                    <span>Remove</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+
+          <% } %>
+            <div class="p-3 container text-center">
+              <p class="fs-1 fw-bolder">Completed Adventures</p>
+                <% if (completed.length===0) {%>
+                  <p class="fw-lighter">You have not completed any adventures yet! Time to queue them up by selecting one of the options
+                    above! Don't forget your activity report.</p>
+                  <% } else {%>
+                    <div class="row row-cols-md-2">
+                      <% for(let i=0; i < completed.length; i++) {%>
+                        <div class="col p-5 text-center">
+                          <div class="card w-auto" style="width:18rem;">
+                            <img src="<%= completed[i].img %>" alt="">
+                            <div class="card-body">
+                              <h5 class="card-title fs-3">
+                                <a href="/post/<%= completed[i].activity_id %>">
+                                  <i class="icon-line2-magnifier"></i>
+                                  <span>
+                                    <%= completed[i].activity_name.toUpperCase() %>
+                                  </span>
+                                </a>
+                              </h5>
+                              <p class="card-text">Activity Report: <%= completed[i].feedback %></p>
+                              <button class="button button-reveal button-circle gradient-blue-purple mistake">
+                                <i class="icon-ban-circle"></i>
+                                <span>Remove</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <% } %>
+                    </div>
+                        <% } %>
+              </ol>
+            </div>
     </div>
 
   </div>
@@ -211,14 +237,14 @@
               <h4>Site Links</h4>
 
               <ul class="list-unstyled footer-site-links mb-0">
-                <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                  data-speed="1250" data-offset="70">Top</a></li>
-          <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                  data-speed="1250" data-offset="70">Profile</a></li>
-          <li><a href="/virtual" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                  data-speed="1250" data-offset="70">Virtual & At Home Activities</a></li>
-          <li><a href="/" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                  data-speed="1250" data-offset="70">Home Page (Logout)</a></li>
+                <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo" data-speed="1250"
+                    data-offset="70">Top</a></li>
+                    <li><a href="/about">About</a></li>
+                <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo" data-speed="1250"
+                    data-offset="70">Profile</a></li>
+                    <li><a href="/outside">Outdoor Adventures</a></li>
+                    <li><a href="/virtual">Virtual & At Home Adventures</a></li>
+                <li><a href="/logout">Home Page (Logout)</a></li>
               </ul>
             </div>
 

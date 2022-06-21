@@ -1,9 +1,13 @@
 module.exports = function (app, passport, db, multer, ObjectId) {
     // normal routes ===============================================================
-    // show the home page
+    // Home Pages
     app.get('/', function (req, res) {
         res.render('index.ejs');
     });
+
+    app.get('/about', function (req, res) {
+        res.render('about.ejs')
+    })
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
@@ -64,7 +68,6 @@ module.exports = function (app, passport, db, multer, ObjectId) {
                 let length = virtual.length
                 let random = Math.floor(Math.random() * length)
                 result = virtual[random]
-                console.log(result)
                 res.render('virtual.ejs', {
                     user: req.user,
                     activities: virtual,
@@ -95,12 +98,15 @@ module.exports = function (app, passport, db, multer, ObjectId) {
     // CRUD routes ===============================================================
 
     app.post('/addAdventure', (req, res) => {
+        console.log(req.body)
         favoriteCollection.save({
             activity_id: req.body.activity_id,
             activity_name: req.body.activity_name.toLowerCase(),
+            img: req.body.img,
+            short_desc: req.body.short_desc,
             user_id: req.body.user_id,
             completed: false,
-            feedback: ''
+            feedback: '',
         }, (err, result) => {
             if (err) return console.log(err)
             console.log('saved to database')
@@ -112,7 +118,7 @@ module.exports = function (app, passport, db, multer, ObjectId) {
         favoriteCollection.findOneAndUpdate({ activity_name: req.body.activity.toLowerCase() }, {
             $set: {
                 completed: true,
-                feedback: req.body.feedback
+                feedback: req.body.feedback 
             }
         }, {
             sort: { _id: -1 },

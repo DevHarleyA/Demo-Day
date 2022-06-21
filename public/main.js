@@ -25,7 +25,7 @@ Array.from(remove).forEach(function (element) {
 Array.from(activity).forEach(function (element) {
     element.addEventListener('click', function () {
         const activity = this.parentNode.childNodes[1].childNodes[1].childNodes[3].innerText
-        const feedback = this.parentNode.childNodes[3].value
+        const feedback = this.parentNode.childNodes[5].value
         console.log(activity, feedback)
 
         if (feedback.length == 0) {
@@ -48,21 +48,3 @@ Array.from(activity).forEach(function (element) {
             })
     })
 })
-
-// Inspirational Quote API
-
-document.querySelector('.quoteMe').addEventListener('click', quoteMe)
-
-
-function quoteMe() {
-    const url = 'https://zenquotes.io/api/today'
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => {
-            console.log(`error ${err}`)
-        })
-}

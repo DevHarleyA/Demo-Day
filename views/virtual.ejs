@@ -133,16 +133,30 @@
 
         <div class="container">
             <h1 class="mt-4">Virtual & At Home Adventures</h1>
-            <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i class="icon-line-home"></i>Back to Profile</a>
-            <a href="/postTwo/<%= virtualRandom %>" class="button button-3d button-rounded gradient-earth randomizer mb-3"><i class="icon-random1"></i>Get Random Activity</a>
-            <div class="row row-cols-2 ">
-                <% for (let i = 0; i < activities.length; i++) {%>
+            <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i
+                    class="icon-line-home"></i>Back to Profile</a>
+            <a href="/postTwo/<%= virtualRandom %>"
+                class="button button-3d button-rounded gradient-earth randomizer mb-3"><i class="icon-random1"></i>Get
+                Random Activity</a>
+            <div class="row row-cols-md-2 ">
+                <% for (let i=0; i < activities.length; i++) {%>
                     <div class="col p-5 text-center">
-                        <p class="fs-3"><%=activities[i].activity_name%></p>
-                        <p><span class="fw-bolder">What:</span><span class="fw-lighter"> <%= activities[i].short_desc %></span></p>
-                        <p><a href="/postTwo/<%=activities[i]._id%>" class="button button-3d button-rounded gradient-green-blue"><i class="icon-line-info"></i>View More Information</a></p>
+                        <div class="card w-auto" style="width: 18rem;">
+                            <img src="<%=activities[i].img%>" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title fs-3">
+                                    <%=activities[i].activity_name%>
+                                </h5>
+                                <p class="card-text">
+                                    <%= activities[i].short_desc %>
+                                </p>
+                                <p><a href="/postTwo/<%=activities[i]._id%>"
+                                        class="button button-3d button-rounded gradient-green-blue card-link"><i
+                                            class="icon-line-info"></i>Info</a></p>
+                            </div>
+                        </div>
                     </div>
-                <%}%>
+                    <%}%>
             </div>
         </div>
 
@@ -162,13 +176,12 @@
 
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Top</a></li>
-                                <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Profile</a></li>
-                                <li><a href="/virtual" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Virtual & At Home Activities</a></li>
-                                <li><a href="/" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Home Page (Logout)</a></li>
+                                            data-speed="1250" data-offset="70">Top</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                                            data-speed="1250" data-offset="70">Profile</a></li>
+                                    <li><a href="/outside">Outdoor Adventures</a></li>
+                                    <li><a href="/logout">Home Page (Logout)</a></li>
                                 </ul>
                             </div>
 
@@ -182,17 +195,17 @@
                                 <p class="lead">Email: <br>aharleydev@gmail.com</p>
 
                                 <div class="center topmargin-sm">
-                                    <a href="https://twitter.com/DevHarleyA"
+                                    <a href="https://twitter.com/DevHarleyA" target="_blank"
                                         class="social-icon inline-block border-0 si-small si-twitter" title="Twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
-                                    <a href="https://github.com/DevHarleyA"
+                                    <a href="https://github.com/DevHarleyA" target="_blank"
                                         class="social-icon inline-block border-0 si-small si-github" title="Github">
                                         <i class="icon-github"></i>
                                         <i class="icon-github"></i>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/harleyalexandra/"
+                                    <a href="https://www.linkedin.com/in/harleyalexandra/" target="_blank"
                                         class="social-icon inline-block border-0 si-small si-linkedin" title="LinkedIn">
                                         <i class="icon-linkedin"></i>
                                         <i class="icon-linkedin"></i>

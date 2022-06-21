@@ -2,14 +2,16 @@
 <html dir="ltr" lang="en-US">
 
 <head>
+
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="SemiColonWeb" />
+
     <!-- Stylesheets
 	============================================= -->
     <link
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
         rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     <!-- One Page Module Specific Stylesheet -->
@@ -27,6 +29,7 @@
     <!-- Document Title
 	============================================= -->
     <title>The Fun Movement</title>
+
 </head>
 
 <body class="stretched side-push-panel">
@@ -91,8 +94,8 @@
                         <!-- Logo
 						============================================= -->
                         <div id="logo">
-                            <a href="#" class="standard-logo">TFM</a>
-                            <a href="#" class="retina-logo">TFM</a>
+                            <a href="/" class="standard-logo">TFM</a>
+                            <a href="/" class="retina-logo">TFM</a>
                         </div><!-- #logo end -->
 
                         <div class="header-misc">
@@ -121,6 +124,21 @@
 
                             <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
                                 data-offset="65">
+                                <li class="menu-item">
+									<a href="/" class="menu-link">
+										<div>Home</div>
+									</a>
+								</li>
+                                <li class="menu-item">
+									<a href="#" class="menu-link">
+										<div>About</div>
+									</a>
+								</li>
+                                <li class="menu-item">
+									<a href="/login" class="menu-link">
+										<div>Log-In</div>
+									</a>
+								</li>
                             </ul>
 
                         </nav><!-- #primary-menu end -->
@@ -130,49 +148,6 @@
             </div>
             <div class="header-wrap-clone"></div>
         </header><!-- #header end -->
-
-        <div class="container text-center">
-            <% for(var i=0; i<posts.length; i++) {%>
-                <div class="col-sm-12 mx-auto d-grid gap-3 p-3">
-                    <p class="fs-1">
-                        <%= posts[i].activity_name %>
-                    </p>
-                    <img src="../<%= posts[i].img %>" alt="" class="img-fluid rounded">
-                    <figure class="text-center">
-                        <blockquote class="blockquote">
-                            <p>
-                                <%= posts[i].desc %>
-                            </p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer">
-                            Description by <cite title="source"><a href="<%= posts[i].desc_src %>">
-                                    <%= posts[i].desc_src_name %>
-                                </a></cite>
-                        </figcaption>
-                    </figure>
-                    <p class="fs-4"><a href="<%= posts[i].url %>" target="_blank">Go to the Website</a></p>
-                    <% if (user.local.email) { %>
-                        <form action="/addAdventure" method="post">
-                            <input type="hidden" name="activity_id" value="<%= posts[i]._id %>">
-                            <input type="hidden" name="activity_name" value="<%= posts[i].activity_name %>">
-                            <input type="hidden" name="user_id" value="<%= user._id %>">
-                            <input type="hidden" name="img" value="<%= posts[i].img %>">
-                            <input type="hidden" name="short_desc" value="<%= posts[i].short_desc%>">
-                            <button type="submit"
-                                class="button button-3d button-rounded gradient-blue-purple">Add to
-                                Awaiting Adventures</button>
-                        </form>
-                        <% } %>
-                        <p class="fs-3">Adventure Instructions: </p>
-                        <p><%= posts[i].instructions %></p>
-                            <% } %>
-                                <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple m-2"><i
-                                        class="icon-laugh"></i>
-                                    Back to Virtual & At Home Adventures</a>
-                </div>
-        </div>
-
-
 
         <!-- Footer
 		============================================= -->
@@ -190,12 +165,10 @@
 
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Top</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/profile">Profile</a></li>
-                                <li><a href="/outside">Outdoor Adventures</a></li>
-                                <li><a href="/virtual">Virtual & At Home Adventures</a></li>
-                                <li><a href="/logout">Home Page (Logout)</a></li>
+                                            data-speed="1250" data-offset="70">Top</a></li>
+                                    <li><a href="#" data-scrollto="#section-about" data-easing="easeInOutExpo"
+                                            data-speed="1250" data-offset="70">About / Log-In</a></li>
+                                    <li><a href="/login">Login</a></li>
                                 </ul>
                             </div>
 

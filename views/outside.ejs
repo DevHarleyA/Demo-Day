@@ -54,17 +54,17 @@
 
                 <h4>Connect Socially</h4>
 
-                <a href="https://twitter.com/DevHarleyA" class="social-icon si-small si-colored si-twitter"
-                    title="Twitter">
+                <a href="https://twitter.com/DevHarleyA" target="_blank"
+                    class="social-icon si-small si-colored si-twitter" title="Twitter">
                     <i class="icon-twitter"></i>
                     <i class="icon-twitter"></i>
                 </a>
-                <a href="https://github.com/DevHarleyA" class="social-icon si-small si-colored si-github"
-                    title="Github">
+                <a href="https://github.com/DevHarleyA" target="_blank"
+                    class="social-icon si-small si-colored si-github" title="Github">
                     <i class="icon-github"></i>
                     <i class="icon-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/harleyalexandra/"
+                <a href="https://www.linkedin.com/in/harleyalexandra/" target="_blank"
                     class="social-icon si-small si-colored si-linkedin" title="LinkedIn">
                     <i class="icon-linkedin"></i>
                     <i class="icon-linkedin"></i>
@@ -134,22 +134,27 @@
         <div class="container">
             <p class="mt-4 fs-1">Outdoor Adventures</p>
             <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i
-                class="icon-line-home"></i>Back to Profile</a>
+                    class="icon-line-home"></i>Back to Profile</a>
             <a href="/post/<%= outdoorRandom %>"
                 class="button button-3d button-rounded gradient-earth randomizer mb-3"><i class="icon-random1"></i>Get
                 Random Activity</a>
-            <div class="row row-cols-2">
+            <div class="row row-cols-md-2">
                 <% for (let i=0; i < activities.length; i++) {%>
                     <div class="col p-5 text-center">
-                        <p class="fs-3">
-                            <%=activities[i].activity_name%>
-                        </p>
-                        <p><span class="fw-bolder">What:</span><span class="fw-lighter">
-                                <%= activities[i].short_desc %>
-                            </span></p>
-                        <p><a href="/post/<%= activities[i]._id %>"
-                                class="button button-3d button-rounded gradient-green-blue"><i
-                                    class="icon-line-info"></i>View More Information</a></p>
+                        <div class="card w-auto" style="width: 18rem;">
+                            <img src="<%=activities[i].img%>" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title fs-3">
+                                    <%=activities[i].activity_name%>
+                                </h5>
+                                <p class="card-text">
+                                    <%= activities[i].short_desc %>
+                                </p>
+                                <a href="/post/<%= activities[i]._id %>"
+                                    class="button button-3d button-rounded gradient-green-blue card-link"><i
+                                        class="icon-line-info"></i>Info</a>
+                            </div>
+                        </div>
                     </div>
                     <%}%>
             </div>
@@ -174,12 +179,10 @@
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
                                             data-speed="1250" data-offset="70">Top</a></li>
-                                    <li><a href="/profile" data-scrollto="#section-about" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Profile</a></li>
-                                    <li><a href="/virtual" data-scrollto="#section-contact" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Virtual & At Home Activities</a></li>
-                                    <li><a href="/" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                            data-speed="1250" data-offset="70">Home Page (Logout)</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/profile">Profile</a></li>
+                                    <li><a href="/virtual">Virtual & At Home Adventures</a></li>
+                                    <li><a href="/logout">Home Page (Logout)</a></li>
                                 </ul>
                             </div>
 
