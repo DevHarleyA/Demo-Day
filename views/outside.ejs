@@ -11,10 +11,7 @@
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
-    <!-- One Page Module Specific Stylesheet -->
     <link rel="stylesheet" href="/css/onepage.css" type="text/css" />
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/dark.css" type="text/css" />
     <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="/css/et-line.css" type="text/css" />
@@ -24,8 +21,6 @@
     <link rel="stylesheet" href="/css/custom.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Document Title
-	============================================= -->
     <title>The Fun Movement: Outdoor Activities & Adventures</title>
 </head>
 
@@ -121,6 +116,26 @@
 
                             <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250"
                                 data-offset="65">
+                                <li class="menu-item">
+                                    <a href="/logout" class="menu-link">
+                                      <div>Logout</div>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="/about" target="_blank" class="menu-link">
+                                      <div>About</div>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="/profile" class="menu-link">
+                                      <div>Profile</div>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="/virtual" class="menu-link">
+                                      <div>Home Adventures</div>
+                                    </a>
+                                  </li>
                             </ul>
 
                         </nav><!-- #primary-menu end -->
@@ -130,14 +145,18 @@
             </div>
             <div class="header-wrap-clone"></div>
         </header><!-- #header end -->
-
-        <div class="container">
-            <p class="mt-4 fs-1">Outdoor Adventures</p>
-            <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i
+        
+        <div class="bg-light bg-gradient">
+            <div class="container">
+                <p class="mt-4 fs-1">Outdoor Adventures</p>
+                <a href="/profile" class="button button-3d button-rounded gradient-green-blue"><i
                     class="icon-line-home"></i>Back to Profile</a>
-            <a href="/post/<%= outdoorRandom %>"
+                <a href="/post/<%= outdoorRandom %>"
                 class="button button-3d button-rounded gradient-earth randomizer mb-3"><i class="icon-random1"></i>Get
                 Random Activity</a>
+            </div>
+        </div>
+        <div class="container">
             <div class="row row-cols-md-2">
                 <% for (let i=0; i < activities.length; i++) {%>
                     <div class="col p-5 text-center">
