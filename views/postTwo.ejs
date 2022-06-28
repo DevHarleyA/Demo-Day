@@ -51,13 +51,13 @@
 
                 <h4>Connect Socially</h4>
 
-                <a href="https://twitter.com/DevHarleyA" target="_blank" class="social-icon si-small si-colored si-twitter"
-                    title="Twitter">
+                <a href="https://twitter.com/DevHarleyA" target="_blank"
+                    class="social-icon si-small si-colored si-twitter" title="Twitter">
                     <i class="icon-twitter"></i>
                     <i class="icon-twitter"></i>
                 </a>
-                <a href="https://github.com/DevHarleyA" target="_blank" class="social-icon si-small si-colored si-github"
-                    title="Github">
+                <a href="https://github.com/DevHarleyA" target="_blank"
+                    class="social-icon si-small si-colored si-github" title="Github">
                     <i class="icon-github"></i>
                     <i class="icon-github"></i>
                 </a>
@@ -175,13 +175,14 @@
                             <input type="hidden" name="user_id" value="<%= user._id %>">
                             <input type="hidden" name="img" value="<%= posts[i].img %>">
                             <input type="hidden" name="short_desc" value="<%= posts[i].short_desc%>">
-                            <button type="submit"
-                                class="button button-3d button-rounded gradient-blue-purple">Add to
+                            <button type="submit" class="button button-3d button-rounded gradient-blue-purple">Add to
                                 Awaiting Adventures</button>
                         </form>
                         <% } %>
-                        <p class="fs-3">Adventure Instructions: </p>
-                        <p><%= posts[i].instructions %></p>
+                            <p class="fs-3">Adventure Instructions: </p>
+                            <p>
+                                <%= posts[i].instructions %>
+                            </p>
                             <% } %>
                                 <a href="/virtual" class="button button-3d button-rounded gradient-blue-purple m-2"><i
                                         class="icon-laugh"></i>
@@ -207,12 +208,12 @@
 
                                 <ul class="list-unstyled footer-site-links mb-0">
                                     <li><a href="#" data-scrollto="#wrapper" data-easing="easeInOutExpo"
-                                        data-speed="1250" data-offset="70">Top</a></li>
-                                <li><a href="/about">About</a></li>
-                                <li><a href="/profile">Profile</a></li>
-                                <li><a href="/outside">Outdoor Adventures</a></li>
-                                <li><a href="/virtual">Virtual & At Home Adventures</a></li>
-                                <li><a href="/logout">Home Page (Logout)</a></li>
+                                            data-speed="1250" data-offset="70">Top</a></li>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/profile">Profile</a></li>
+                                    <li><a href="/outside">Outdoor Adventures</a></li>
+                                    <li><a href="/virtual">Virtual & At Home Adventures</a></li>
+                                    <li><a href="/logout">Home Page (Logout)</a></li>
                                 </ul>
                             </div>
 
@@ -232,7 +233,7 @@
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="https://github.com/DevHarleyA" target="_blank"
-                                        class="social-icon inline-block border-0 si-small si-github" title="Github"> 
+                                        class="social-icon inline-block border-0 si-small si-github" title="Github">
                                         <i class="icon-github"></i>
                                         <i class="icon-github"></i>
                                     </a>
