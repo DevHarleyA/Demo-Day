@@ -118,7 +118,7 @@ module.exports = function (app, passport, db, multer, ObjectId) {
         favoriteCollection.findOneAndUpdate({ activity_name: req.body.activity.toLowerCase() }, {
             $set: {
                 completed: true,
-                feedback: req.body.feedback 
+                feedback: req.body.feedback
             }
         }, {
             sort: { _id: -1 },
